@@ -1,4 +1,4 @@
-export const navItems = [
+const navItems = [
   {
     label: 'Home',
     href: '/',
@@ -12,3 +12,7 @@ export const navItems = [
     href: '/login',
   },
 ]
+
+export type NavItemType = (typeof navItems)[0]
+
+export default navItems
