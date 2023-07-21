@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 type NavItems = {
   label: string
@@ -16,10 +17,11 @@ export default function Navigation({ navItems }: NavigationProps) {
   return navItems.map((item, index) => (
     <Link
       key={item.href + index}
-      className={`p-2 hover:scale-110 hover:text-quaternary transition-transform duration-300 ${
-        pathname === `/${item.href}` ? 'text-bold' : ''
-      }`}
-      href={`/ ${item.href}`}
+      className={twMerge(
+        'p-2 transform hover:text-quaternary',
+        pathname === `${item.href}` ? 'font-bold' : '',
+      )}
+      href={`${item.href}`}
     >
       {item.label}
     </Link>

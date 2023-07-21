@@ -29,13 +29,13 @@ export default function MenuHamburguer({ items }: MenuHamburguerProps) {
         </Menu.Button>
         <Transition
           enter="transition duration-300 ease-out"
-          enterFrom="transform translate-x-10 opacity-40"
-          enterTo="transform translate-x-0 opacity-100"
+          enterFrom="transform -translate-y-20 -scale-50 opacity-40"
+          enterTo="transform translate-y-0 opacity-100"
           leave="transition duration-300 ease-out"
-          leaveFrom="transform translate-x-0 opacity-100"
-          leaveTo="transform -translate-x-20 opacity-0"
+          leaveFrom="transform translate-y-0 opacity-100"
+          leaveTo="transform opacity-0 -scale-50"
         >
-          <Menu.Items className="absolute -right-3 top-0 mt-3 w-screen h-screen bg-primary outline-none">
+          <Menu.Items className="absolute -right-3 top-0 mt-3 w-screen h-screen transform bg-primary outline-none">
             <div className="py-1">
               {items.map((item, index) => (
                 <Menu.Item
