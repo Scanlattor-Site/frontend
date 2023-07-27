@@ -9,7 +9,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Scanlattor Site',
+  title: process.env.SCAN_NAME ?? 'Scanlattor Site',
   description: 'Site para scanslattors.',
 }
 
