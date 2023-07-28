@@ -1,7 +1,10 @@
-export default function Logo() {
+const SCAN_NAME = process.env.NEXT_PUBLIC_SCAN_NAME
+
+export default function LogoAndName() {
   return (
-    <div className="drop-shadow-md">
+    <section className="flex items-center gap-2 drop-shadow-md">
       <img src="/logo.png" height="40px" width="40px" alt="Logo" />
-    </div>
+      <h2 className="text-white text-3xl font-bold">{SCAN_NAME}</h2>
+    </section>
   )
 }

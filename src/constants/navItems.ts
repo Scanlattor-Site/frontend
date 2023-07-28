@@ -1,15 +1,23 @@
 const navItems = [
   {
-    label: 'Home',
+    label: 'Início',
     href: '/',
+  },
+  {
+    label: 'Quem somos?',
+    href: '/quem-somos',
   },
   {
     label: 'Projetos',
     href: '/projetos',
   },
   {
-    label: 'Login',
-    href: '/login',
+    label: 'Comunidade',
+    href: '/comunidade',
+  },
+  {
+    label: 'Biblioteca',
+    href: '/biblioteca',
   },
 ]
 

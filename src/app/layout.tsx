@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={`${poppins.className}`}>
+      <body className={`${poppins.className} flex flex-col items-center`}>
         <Header />
         {children}
       </body>

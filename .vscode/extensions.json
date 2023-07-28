@@ -1,6 +1,9 @@
 {
     "recommendations": [
         "rangav.vscode-thunder-client",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+        "bradlc.vscode-tailwindcss",
+        "naumovs.color-highlight"
     ]
 }

@@ -18,8 +18,10 @@ export default function Navigation({ navItems }: NavigationProps) {
     <Link
       key={item.href + index}
       className={twMerge(
-        'p-2 transform hover:text-quaternary',
-        pathname === `${item.href}` ? 'font-bold' : '',
+        'p-2 transform hover:font-semibold',
+        pathname === `${item.href}`
+          ? 'font-bold text-lg border-b-2 border-b-solid border-b-white'
+          : '',
       )}
       href={`${item.href}`}
     >

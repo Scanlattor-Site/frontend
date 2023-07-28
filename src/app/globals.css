@@ -13,3 +13,8 @@ body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-rgb));
 }
+
+.container {
+  max-width: 62.5rem;
+  margin: 0 auto;
+}
