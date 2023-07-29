@@ -1,12 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import LogoAndName from './Logo'
 import MenuHamburguer from './MenuHamburguer'
 import Navigation from './Navigation'
 import navItems from '@/constants/navItems'
-import { Link as ScrollLink } from 'react-scroll'
 import { twMerge } from 'tailwind-merge'
-import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import Search from '../Search'
 
@@ -30,6 +28,7 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Transition
@@ -57,7 +56,9 @@ export default function Header() {
           </section>
         </nav>
         <section className="md:block md:order-none order-2">
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
         </section>
       </section>
     </Transition>

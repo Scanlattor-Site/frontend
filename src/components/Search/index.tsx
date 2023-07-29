@@ -4,7 +4,7 @@ async function Search() {
   // const mangas = await fetch(
   //   'https://scanlattor-site-back.bohr.io/api/mangas',
   //   {
-      
+
   //   }
   // ).then((res) => res.json())
   // console.log(mangas)

@@ -3,7 +3,6 @@ import { Menu, Transition } from '@headlessui/react'
 import type { NavItemType } from '@/constants/navItems'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
 
 export interface MenuHamburguerProps {
   items: NavItemType[]
