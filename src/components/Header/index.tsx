@@ -7,10 +7,15 @@ import navItems from '@/constants/navItems'
 import { twMerge } from 'tailwind-merge'
 import { Transition } from '@headlessui/react'
 import Search from '../Search'
+import { usePathname } from 'next/navigation'
+
+const ROUTES_WITH_STICKY_HEADER = ['/']
 
 export default function Header() {
   const [headerIsColored, setHeaderIsCollored] = useState(false)
   const [isScrollingTop, setIsScrollingTop] = useState(true)
+  const pathname = usePathname()
+  const isFixed = ROUTES_WITH_STICKY_HEADER.includes(pathname)
   const scrollThreshold = 100 // Defina o valor em pixels para ativar a mudança de cor
   let prevScrollPos = 0
 
@@ -41,11 +46,12 @@ export default function Header() {
       show={isScrollingTop}
       className={twMerge(
         'w-full from-transparent to-transparent bg-gradient-to-r sticky top-0 z-50',
+        isFixed && 'fixed',
         isScrollingTop ? 'visible' : 'hidden',
         headerIsColored ? 'from-primary to-secondary' : '',
       )}
     >
-      <section className="container flex w-full items-center justify-between p-3 md:px-0">
+      <section className="flex w-full items-center justify-between p-3 container gap-3">
         <LogoAndName />
         <nav className="flex gap-3 w-max items-center order-last md:order-none">
           <section className="hidden md:block">
@@ -55,7 +61,7 @@ export default function Header() {
             <MenuHamburguer items={navItems} />
           </section>
         </nav>
-        <section className="md:block md:order-none order-2">
+        <section className="md:block md:order-none order-2 max-md:flex-grow max-md:flex max-md:justify-end">
           <Suspense>
             <Search />
           </Suspense>

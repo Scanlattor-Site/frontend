@@ -11,7 +11,7 @@ async function Search() {
 
   return (
     <div>
-      <div className="bg-quaternary bg-opacity-50 rounded-full p-1">
+      <div className="bg-quaternary bg-opacity-50 rounded-full p-1 w-fit">
         <Image
           src="/search-icon.svg"
           alt="Search icon"

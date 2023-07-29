@@ -34,7 +34,7 @@ export default function MenuHamburguer({ items }: MenuHamburguerProps) {
           leave="transition duration-300 ease-out"
           leaveFrom="transform opacity-100"
           leaveTo="transform opacity-0"
-          className="absolute -right-3 top-0 mt-12 py-1 w-screen h-[calc(100vh-3rem)] bg-quaternary outline-none"
+          className="absolute -right-2 top-0 mt-12 py-1 w-screen h-[calc(100vh-3rem)] bg-quaternary outline-none"
         >
           {items.map((item, index) => (
             <Menu.Item
