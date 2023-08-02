@@ -1,10 +1,5 @@
 import ButtonSearch from './ButtonSearch'
 
-type ResponseApi = {
-  total: number
-  mangas: MangasType.SearchProps[]
-}
-
 // const mangas = [
 //   {
 //     id: 'e1d8bcaf-4ebe-4207-92bc-3a44912e8103',
