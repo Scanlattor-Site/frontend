@@ -13,17 +13,32 @@ export const metadata: Metadata = {
   description: 'Site para scanslattors.',
 }
 
-export default function RootLayout({
+type ResponseApi = {
+  total: number
+  mangas: MangasType.SearchProps[]
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const response: ResponseApi = await fetch(
+    'https://scanlattor-site-back.bohr.io/api/mangas',
+    {
+      next: {
+        // tags: ['mangas'],
+        revalidate: 60,
+      },
+    },
+  ).then((res) => res.json())
+  console.log(response)
   return (
     <html lang="pt-br">
       <body
         className={`${poppins.className} flex flex-col items-center h-[200vh]`}
       >
-        <Header />
+        <Header mangas={response.mangas} />
         {children}
       </body>
     </html>

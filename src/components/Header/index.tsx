@@ -8,10 +8,15 @@ import { twMerge } from 'tailwind-merge'
 import { Transition } from '@headlessui/react'
 import Search from '../Search'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const ROUTES_WITH_STICKY_HEADER = ['/']
 
-export default function Header() {
+export default function Header({
+  mangas,
+}: {
+  mangas: MangasType.SearchProps[]
+}) {
   const [headerIsColored, setHeaderIsCollored] = useState(false)
   const [isScrollingTop, setIsScrollingTop] = useState(true)
   const pathname = usePathname()
@@ -62,8 +67,24 @@ export default function Header() {
           </section>
         </nav>
         <section className="md:block md:order-none order-2 max-md:flex-grow max-md:flex max-md:justify-end">
-          <Suspense>
-            <Search />
+          <Suspense
+            fallback={
+              <button
+                type="button"
+                className="bg-quaternary bg-opacity-50 rounded-full p-1 w-fit"
+                disabled
+              >
+                <Image
+                  src="/search-icon.svg"
+                  alt="Search icon"
+                  width={26}
+                  height={26}
+                  className="animate-spin"
+                />
+              </button>
+            }
+          >
+            <Search mangas={mangas} />
           </Suspense>
         </section>
       </section>

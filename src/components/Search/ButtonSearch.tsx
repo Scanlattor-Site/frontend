@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import InputSearch from './InputSearch'
 import Image from 'next/image'
 
@@ -9,12 +9,6 @@ export interface ButtonSearchProps {
 
 export default function ButtonSearch({ mangas }: ButtonSearchProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  const handleModal = (event: React.FocusEvent<HTMLDivElement>) => {
-    if (!event.target.closest('#search')) {
-      setIsOpen(false)
-    }
-  }
 
   return (
     <>
@@ -35,14 +29,16 @@ export default function ButtonSearch({ mangas }: ButtonSearchProps) {
           <div
             className="absolute w-screen md:right-0 max-sm:left-0 top-16 container z-20"
             style={{ maxWidth: '22rem' }}
-            onBlur={(e) => handleModal(e)}
           >
             <InputSearch mangas={mangas} autoFocus />
           </div>
         )}
       </div>
       {isOpen && (
-        <div className="w-screen h-screen bg-secondary left-0 top-0 absolute opacity-50 z-10" />
+        <div
+          className="w-screen h-screen bg-secondary left-0 top-0 absolute opacity-50 z-10"
+          onClick={() => setIsOpen(false)}
+        />
       )}
     </>
   )
