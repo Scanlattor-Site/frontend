@@ -89,7 +89,7 @@ export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
         </div>
         <Combobox.Options
           as="section"
-          className="bg-white p-5 max-h-52 overflow-y-auto"
+          className="bg-white p-5 max-h-[50vh] overflow-y-auto"
           static
         >
           <h2 className="text-primary font-bold">Mangás</h2>

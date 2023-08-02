@@ -12,7 +12,7 @@ export default function ButtonSearch({ mangas }: ButtonSearchProps) {
 
   return (
     <>
-      <div className="md:relative">
+      <div className="md:relative flex items-center">
         <button
           type="button"
           className="bg-quaternary bg-opacity-50 rounded-full p-1 w-fit"
