@@ -1,5 +1,4 @@
 'use client'
-import isUserLogged from '@/actions/isUserLogged'
 import { createContext, useEffect, useState } from 'react'
 
 export const UserInfosContext = createContext({
@@ -16,7 +15,10 @@ export default function UserInfosProvider({
   const [isLogged, setIsLogged] = useState(false)
   useEffect(() => {
     ;(async function () {
-      const logged = await isUserLogged()
+      const logged = await fetch('/api/isUserLogged', {
+        cache: 'no-cache',
+      }).then((res) => res.json())
+
       setIsLogged(logged)
     })()
   }, [])
