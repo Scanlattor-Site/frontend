@@ -40,7 +40,6 @@ export default function FavoriteButton({ id }: { id: string }) {
       type="button"
       className={twMerge(
         'absolute top-2 left-2 bg-secondary rounded-full p-1 z-10',
-        !localStorage && 'animate-spin',
       )}
       onClick={handleFavorite}
     >
