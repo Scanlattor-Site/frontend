@@ -31,7 +31,10 @@ export default async function Home() {
           </Divider>
           <section className="flex md:flex-wrap overflow-x-auto gap-4 mt-11 justify-between first:bg-white pb-4">
             {mostRead.map((manga) => (
-              <div className="relative" key={manga.id}>
+              <div
+                className="relative flex-shrink-0 md:w-[47%]  w-32"
+                key={manga.id}
+              >
                 <FavoriteButton id={manga.id} />
                 <Link
                   href={`/mangas/${manga.slug}`}
