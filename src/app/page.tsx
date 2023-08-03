@@ -3,7 +3,6 @@ import Carousel from '@/components/Carousel'
 import StartSession from '@/components/StartSession'
 import theme from '@/theme/themeConfig'
 import { ConfigProvider, Divider } from 'antd'
-import Image from 'next/image'
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL || 'https://scanlattor-site-back.bohr.io/api'
@@ -31,23 +30,12 @@ export default async function Home() {
           </Divider>
           <section className="flex flex-wrap gap-y-7 mt-11 justify-between">
             {mostRead.map((manga) => (
-              <Card key={manga.id} manga={manga} />
+              <Card key={manga.id} manga={manga}>
+                <Card.Title>{manga.title}</Card.Title>
+                <Card.Author>{manga.author}</Card.Author>
+                <Card.Synopsis>{manga.synopsis}</Card.Synopsis>
+              </Card>
             ))}
-            {/* <div key={manga.id} className="w-1/4">
-                <Image
-                  src={manga.thumbnail}
-                  alt={manga.title}
-                  className="rounded-lg w-full"
-                />
-                <div className="flex flex-col gap-2 mt-2">
-                  <h3 className="font-bold text-lg">{manga.title}</h3>
-                  <p className="text-sm">
-                    {manga.synopsis.length > MAX_SYNOPSIS_LENGTH
-                      ? manga.synopsis.slice(0, MAX_SYNOPSIS_LENGTH) + '...'
-                      : manga.synopsis}
-                  </p>
-                </div>
-              </div> */}
           </section>
         </section>
       </section>
