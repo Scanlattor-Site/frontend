@@ -39,11 +39,11 @@ function Card({
           width={141}
           height={147}
           className={twMerge(
-            'w-36 h-[9.19rem] rounded-md flex-shrink-0 flex-grow',
+            'w-36 h-44 rounded-md flex-shrink-0 flex-grow',
             imageClassName,
           )}
         />
-        <div className="flex flex-col gap-2 mt-2 flex-shrink max-w-xs h-full">
+        <div className="flex flex-col gap-2 flex-shrink max-w-xs h-auto">
           {children}
         </div>
       </div>
