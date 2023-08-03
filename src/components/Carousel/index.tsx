@@ -13,7 +13,9 @@ export default function Carousel() {
       autoplay
       appendDots={(dots) => (
         <div>
-          <div className={twMerge('container flex', isLogged && 'justify-end')}>
+          <div
+            className={twMerge('container flex', !isLogged && 'justify-end')}
+          >
             <ul className="flex items-center gap-2 mb-2.5 md:mb-5">{dots}</ul>
           </div>
         </div>
