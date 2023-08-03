@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  swcMinify: true,
+  output: 'standalone',
+  compress: false,
   images: {
     unoptimized: true,
   },
-  output: 'export',
   experimental: {
     serverActions: true,
   },
