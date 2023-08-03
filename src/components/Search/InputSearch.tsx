@@ -12,7 +12,6 @@ export interface InputSearchProps {
 }
 
 export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
-  const [selected, setSelected] = useState(null)
   const [query, setQuery] = useState('')
   const router = useRouter()
   // const lastSearch =
@@ -33,13 +32,6 @@ export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
   //   localStorage.setItem('lastSearch', JSON.stringify(lastSearchActual))
   // }
 
-  const handleSearch = (slug: string) => {
-    console.log(slug)
-    router.push(`/mangas/${slug}`)
-    // setSelected()
-    // setLastSearch(query)
-  }
-
   const filteredMangas =
     query === ''
       ? mangas
@@ -51,7 +43,7 @@ export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
         )
 
   return (
-    <Combobox value={selected} onChange={handleSearch}>
+    <Combobox>
       <div id="search">
         <div className="relative">
           <Combobox.Input
@@ -99,7 +91,10 @@ export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
               value={manga.slug}
               className="py-2 px-2 leading-5 text-lg rounded-md hover:bg-primary ui-active:bg-primary ui-active:bg-opacity-60 hover:bg-opacity-30 text-tertiary cursor-pointer list-none"
             >
-              <div className="flex items-center">
+              <Link
+                href={`/mangas/${manga.slug}`}
+                className="flex items-center"
+              >
                 <Image
                   src={manga.thumbnail}
                   alt={manga.title}
@@ -112,7 +107,7 @@ export default function InputSearch({ mangas, autoFocus }: InputSearchProps) {
                     {manga.title}
                   </p>
                 </div>
-              </div>
+              </Link>
             </Combobox.Option>
           ))}
           {/* lastSearch.map((search, index) => (
