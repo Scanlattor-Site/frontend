@@ -12,6 +12,7 @@ const theme: ThemeConfig = {
     colorPrimary: '#3368df',
     colorFillSecondary: '#c369b6',
     colorFillTertiary: '#16264c',
+    colorBorderSecondary: '#3368df',
   },
 }
 
