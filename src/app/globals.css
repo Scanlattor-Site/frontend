@@ -25,6 +25,7 @@ body {
 /* Estilizar a barra de rolagem vertical */
 ::-webkit-scrollbar {
   width: 8px;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,7 +39,7 @@ body {
 
 /* Estilizar a barra de rolagem horizontal */
 ::-webkit-scrollbar-horizontal {
-  height: 8px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
