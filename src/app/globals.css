@@ -20,3 +20,45 @@ body {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+
+/* styles.css */
+/* Estilizar a barra de rolagem vertical */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f131;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 20px;
+}
+
+/* Estilizar a barra de rolagem horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  /* background-color: #888; */
+  background-color: #f1f1f131;
+  border-radius: 20px;
+}
+
+.ant-carousel .slick-slider .slick-dots li button {
+  width: 0.75rem !important; /* Largura do dot */
+  height: 0.75rem !important; /* Altu!importantra do dot */
+  border-radius: 50%; /* Deixa o dot com formato circular */
+  background-color: white !important; /* Cor de fundo do dot */
+  opacity: 100%;
+  border: none; /* Remove a borda */
+}
+
+/* Estilizar o dot ativo (selecionado) */
+.ant-carousel .slick-slider li.slick-active button {
+  width: 2rem !important; /* Largura do dot ativo */
+  background-color: #c369b6 !important; /* Cor de fundo do dot ativo */
+  border-radius: 3.75rem !important; /* Deixa o dot ativo com formato circular */
+}

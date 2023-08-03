@@ -1,7 +1,9 @@
 import Header from '@/components/Header'
-import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import './globals.css'
+import StyledComponentsRegistry from '@/lib/AntdRegistry'
+import UserInfosProvider from '@/lib/UserInfos'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -38,8 +40,12 @@ export default async function RootLayout({
       <body
         className={`${poppins.className} flex flex-col items-center h-[200vh]`}
       >
-        <Header mangas={response.mangas} />
-        {children}
+        <UserInfosProvider>
+          <StyledComponentsRegistry>
+            <Header mangas={response.mangas} />
+            {children}
+          </StyledComponentsRegistry>
+        </UserInfosProvider>
       </body>
     </html>
   )

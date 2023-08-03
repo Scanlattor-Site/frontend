@@ -1,3 +1,11 @@
+import Carousel from '@/components/Carousel'
+import theme from '@/theme/themeConfig'
+import { ConfigProvider } from 'antd'
+
 export default function Home() {
-  return <h1>Scanlattor Site</h1>
+  return (
+    <ConfigProvider theme={theme}>
+      <Carousel />
+    </ConfigProvider>
+  )
 }
