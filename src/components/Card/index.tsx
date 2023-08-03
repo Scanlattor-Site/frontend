@@ -1,5 +1,5 @@
 import { Skeleton } from 'antd'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import Title from './Title'
 import { twMerge } from 'tailwind-merge'
 import Author from './Author'
@@ -9,40 +9,45 @@ export interface CardProps {
   manga: MangasType.MangaProps
   children: React.ReactNode
   loading?: boolean
-  imageClassName?: HTMLImageElement['className']
+  className?: HTMLDivElement['className']
+  imageClassName?: ImageProps['className']
 }
 
-function Card({ manga, loading, imageClassName, children }: CardProps) {
+function Card({
+  manga,
+  loading,
+  imageClassName,
+  className,
+  children,
+}: CardProps) {
   return (
-    <div className="max-w-[27.19113rem]">
-      <Skeleton
-        loading={loading || false}
-        avatar={{
-          style: {
-            width: '8.8rem',
-            height: '9.1rem',
-            borderRadius: '0.375rem',
-          },
-        }}
-        active
-      >
-        <div className="flex gap-2">
-          <Image
-            src={manga.thumbnail}
-            alt={manga.title}
-            width={141}
-            height={147}
-            className={twMerge(
-              'w-36 h-[9.19rem] rounded-md flex-shrink-0 flex-grow',
-              imageClassName,
-            )}
-          />
-          <div className="flex flex-col gap-2 mt-2 flex-shrink max-w-xs">
-            {children}
-          </div>
+    <Skeleton
+      loading={loading || false}
+      avatar={{
+        style: {
+          width: '8.8rem',
+          height: '9.1rem',
+          borderRadius: '0.375rem',
+        },
+      }}
+      active
+    >
+      <div className={twMerge('flex gap-2', className)}>
+        <Image
+          src={manga.thumbnail}
+          alt={manga.title}
+          width={141}
+          height={147}
+          className={twMerge(
+            'w-36 h-[9.19rem] rounded-md flex-shrink-0 flex-grow',
+            imageClassName,
+          )}
+        />
+        <div className="flex flex-col gap-2 mt-2 flex-shrink max-w-xs h-full">
+          {children}
         </div>
-      </Skeleton>
-    </div>
+      </div>
+    </Skeleton>
   )
 }
 
@@ -51,7 +56,6 @@ function Card({ manga, loading, imageClassName, children }: CardProps) {
  *
  * @param children O titulo do mangá
  * @param className A classe do elemento
- * @param maxTitleLength O tamanho máximo do título, valor padrão: 40
  * @returns O nome do autor do mangá formatado
  */
 Card.Title = Title
@@ -69,7 +73,6 @@ Card.Author = Author
  * Componente para ser usado dentro do componente Card
  *
  * @param children A sinpose do mangá
- * @param maxSynopsisLength O tamanho máximo da sinpose, valor padrão: 100
  * @param className A classe do elemento
  * @returns A sinpose do mangá formatada
  */
