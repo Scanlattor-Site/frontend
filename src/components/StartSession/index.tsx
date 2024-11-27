@@ -15,7 +15,7 @@ export default function StartSession() {
         <h3 className="text-sm text-primary font-semibold text-center">
           Faça login para ficar por dentro de todo o conteúdo
         </h3>
-        <Link href="/login">
+        <Link href="/sign-in">
           <Button>Fazer login</Button>
         </Link>
       </div>

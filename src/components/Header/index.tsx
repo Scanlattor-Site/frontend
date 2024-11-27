@@ -10,7 +10,7 @@ import Search from '../Search'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
-const ROUTES_WITH_STICKY_HEADER = ['/']
+const ROUTES_WITH_STICKY_HEADER = ['/', '/sign-in']
 
 export default function Header({
   mangas,
@@ -28,7 +28,6 @@ export default function Header({
     const currentScrollPos = window.scrollY
     setIsScrollingTop(currentScrollPos < prevScrollPos)
     setHeaderIsCollored(currentScrollPos >= scrollThreshold)
-    console.log(currentScrollPos < prevScrollPos)
 
     prevScrollPos = currentScrollPos
   }

@@ -10,9 +10,27 @@ const API_URL =
   process.env.NEXT_PUBLIC_API_URL || 'https://scanlattor-site-back.bohr.io/api'
 
 export default async function Home() {
-  const mostRead: MangasType.MangaProps[] = await fetch(
+  const mostRead: MangasType.MangaProps[] = [
+    {
+      id: '1',
+      title: 'One Piece',
+      slug: 'one-piece',
+      author: 'Eiichiro Oda',
+      chapters: [],
+      createdAt: '2021-10-10',
+      releaseDate: '2021-10-10',
+      status: 'ongoing',
+      synopsis:
+        'One Piece é uma série de mangá escrita e ilustrada por Eiichiro Oda. Os capítulos são serializados na revista Weekly Shōnen Jump desde 22 de julho de 1997, com os capítulos compilados e publicados em volumes tankōbon pela editora Shueisha. One Piece segue as aventuras de Monkey D. Luffy, um jovem cujo corpo ganhou as propriedades de borracha depois de ter ingerido uma Fruta do Diabo acidentalmente. Com sua tripulação de piratas, chamada de Straw Hat Pirates, Luffy explora a Grand Line em busca do One Piece, o maior tesouro do mundo, para se tornar o Rei dos Piratas.',
+      thumbnail:
+        'https://i.pinimg.com/originals/0b/3f/5b/0b3f5b2e2b5c2e2b0e9d5a5b7a0e6c5b.jpg',
+      updatedAt: '2021-10-10',
+      rate: 5,
+      views: 1000,
+    },
+  ] /* await fetch(
     `${API_URL}/mangas/most-read`,
-  ).then((res) => res.json())
+  ).then((res) => res.json()) */
 
   console.log(mostRead)
   return (

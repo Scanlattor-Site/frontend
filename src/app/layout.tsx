@@ -25,7 +25,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const response: ResponseApi = await fetch(
+  /* const response: ResponseApi = await fetch(
     'https://scanlattor-site-back.bohr.io/api/mangas',
     {
       next: {
@@ -33,13 +33,15 @@ export default async function RootLayout({
         revalidate: 60,
       },
     },
-  ).then((res) => res.json())
+  ).then((res) => res.json()) */
+  const response = {
+    total: 0,
+    mangas: [],
+  }
   console.log(response)
   return (
     <html lang="pt-br">
-      <body
-        className={`${poppins.className} flex flex-col items-center h-[200vh]`}
-      >
+      <body className={`${poppins.className} flex flex-col items-center min-h-screen`}>
         <UserInfosProvider>
           <StyledComponentsRegistry>
             <Header mangas={response.mangas} />

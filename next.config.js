@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
+  /* images: {
     unoptimized: true,
   },
-  output: 'standalone',
+  output: 'standalone', */
+  images: {
+    domains: ['res.cloudinary.com', 'i.pinimg.com'],
+  },
 }
 
 module.exports = nextConfig
